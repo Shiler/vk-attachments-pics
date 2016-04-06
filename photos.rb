@@ -5,8 +5,12 @@ class Photos
     @photos = Array.new
   end
 
-  def add_photo(url)
-    @photos.push(url)
+  def add(url)
+    @photos << url
+  end
+
+  def to_s
+    @photos.to_s
   end
 
 end
