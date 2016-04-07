@@ -1,9 +1,8 @@
-require './auth_controller.rb'
+require './console_parser.rb'
 require './attachments_parser.rb'
 
-# console_parser = ConsoleParser.new
-auth_controller = AuthController.new
-# attachments_parser = AttachmentsParser.new(auth_controller.authorize)
-attachments_parser = AttachmentsParser.new('TOKEN')
+console_parser = ConsoleParser.new
+params = console_parser.get_parameters
+attachments_parser = AttachmentsParser.new(params.arguments[0])
 
-attachments_parser.get_dialog_pics(103349989, 200, 0)
+attachments_parser.get_dialog_pics(params.arguments[1], 200, 0)

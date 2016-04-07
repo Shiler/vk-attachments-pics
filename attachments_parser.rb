@@ -19,12 +19,11 @@ class AttachmentsParser
       temp = json_to_hash(response)
       temp = temp['response']
       photos = create_photos_obj(temp)
-      puts photos
+      puts photos.to_s
       # TODO
     else
       # TODO
     end
-    # puts nf.colorize(:blue) # debug
   end
 
   def create_photos_obj(hash)
@@ -32,11 +31,20 @@ class AttachmentsParser
     hash.each { |item|
       if (item.instance_of?(Hash))
         photo = item['photo']
-        url = photo['src_xxxbig']
+        url = find_max_size(photo)
         photos.add(url)
       end
     }
     photos
+  end
+
+  def find_max_size(hash)
+    arr = []
+    hash.each {
+      |key, value|
+      key == 'width' ? (return arr.last) : arr << value
+    }
+    return nil
   end
 
   def get_by_url(url)
