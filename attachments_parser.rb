@@ -2,16 +2,17 @@ require 'net/http'
 require 'json'
 require 'cgi'
 require './photos.rb'
+require './file_manager.rb'
 
 class AttachmentsParser
 
   def initialize(access_token)
     @access_token = access_token
-
+    @file_manager = FileManager.new
   end
 
-  def get_dialog_pics(uid, count, start_from)
-    hash = Hash.new
+  def get_dialog_pics(uid, count, hash, start_from)
+    hash.nil? ? (hash = Hash.new) : hash
     url = "https://api.vk.com/method/messages.getHistoryAttachments?peer_id=#{uid}&count=#{count}&media_type=photo&access_token=#{@access_token}"
     response = get_by_url(url)
     nf = next_from(response)
@@ -19,10 +20,9 @@ class AttachmentsParser
       temp = json_to_hash(response)
       temp = temp['response']
       photos = create_photos_obj(temp)
-      puts photos.to_s
-      # TODO
+      @file_manager.save_photos(photos.photos)
     else
-      # TODO
+      get_dialog_pics(uid, count, hash, nf)
     end
   end
 

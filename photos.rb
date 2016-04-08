@@ -13,4 +13,8 @@ class Photos
     @photos.to_s
   end
 
+  def photos
+    @photos
+  end
+
 end
