@@ -21,9 +21,10 @@ class Console
     puts "Saving photo: #{i}".colorize(:yellow)
   end
 
-  def done(count)
+  def done(count, errors)
     puts 'Parsing: SUCCESSFUL'.colorize(:red)
     puts "Downloaded #{count} pictures.".colorize(:blue)
+    puts "ERRORS: #{errors}".colorize(:red)
   end
 
   def parsing_pack(number)

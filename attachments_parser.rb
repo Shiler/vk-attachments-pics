@@ -1,7 +1,6 @@
 require 'net/http'
 require 'json'
 require 'cgi'
-require './photos.rb'
 require './file_manager.rb'
 require './console.rb'
 
