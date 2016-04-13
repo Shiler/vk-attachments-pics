@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require './console.rb'
 require './attachments_parser.rb'
 require './file_manager.rb'
