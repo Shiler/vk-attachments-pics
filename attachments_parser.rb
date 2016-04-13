@@ -71,7 +71,7 @@ class AttachmentsParser
     ret_before_small = false
     hash.each {
       |key, value|
-      key == 'height' && value < 604 ? ret_before_small = true : nil
+      key == 'height' && value <= 604 ? ret_before_small = true : nil
     }
     hash.each {
       |key, value|
