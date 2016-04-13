@@ -7,7 +7,7 @@ by opening in browser
 
 https://oauth.vk.com/authorize?client_id=5376127&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=messages&response_type=token&v=5.50
 
-After authentificating you'll get this url:
+After authentification you'll get this url:
 ```url
 https://oauth.vk.com/blank.html#access_token=abcde12345&expires_in=86400&user_id=143937778
 ```
