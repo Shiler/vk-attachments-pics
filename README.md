@@ -15,7 +15,7 @@ https://oauth.vk.com/blank.html#access_token=abcde12345&expires_in=86400&user_id
 
 ### 2. Run script
 ```sh
-$ ./vk-parser 'TOKEN' 'ID'
+$ ./vk-parser 'TOKEN' ID
 ```
 
 ### Some words about uncomfortable authentication method
