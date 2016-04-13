@@ -2,19 +2,24 @@
 class Photos
 
   def initialize
-    @photos = Array.new
+    @url_array = Array.new
   end
 
   def add(url)
-    @photos << url
+    @url_array << url
   end
 
   def to_s
-    @photos.to_s
+    @url_array.to_s
   end
 
-  def photos
-    @photos
+  def url_array
+    @url_array
+  end
+
+  def add_array(arr)
+    @url_array = @url_array + arr
+    puts 'added array'
   end
 
 end
